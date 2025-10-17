@@ -1,0 +1,493 @@
+//PLAYER 1
+
+//VARIABLES
+const buttonright = "ArrowRight";
+const buttonleft = "ArrowLeft";
+const buttontop = "ArrowUp";
+const buttondown = "ArrowDown";
+const buttona = "KeyQ";
+const buttonz = "KeyW";
+const buttone = "KeyE";
+const buttonr = "KeyR";
+
+const buttonright2 = "KeyV";
+const buttonleft2 = "KeyC";
+const buttontop2 = "KeyZ";
+const buttondown2 = "KeyX";
+const buttonj = "KeyJ";
+const buttonk = "KeyK";
+const buttonl = "KeyL";
+const buttonm = "Semicolon";
+
+const output = document.getElementById("outputtext");
+const output2 = document.getElementById("outputtext2");
+const player1explosionstatus = document.getElementById("useplayer1explosion");
+const player1firestatus = document.getElementById("useplayer1fire");
+const player1punchstatus = document.getElementById("useplayer1punch");
+const player1magicbowstatus = document.getElementById("useplayer1magicbow");
+const mana1htmlelement = document.getElementById("mana");
+const mana2htmlelement = document.getElementById("mana2");
+const player2 = document.getElementById("player2");
+const player = document.getElementById("player1"); 
+
+var bruitdepas = new Audio('pasleger.mp3');
+var ambiance = new Audio('ambiance.mp3');
+var explosion = new Audio('explosion.mp3');
+var fire = new Audio('fire.mp3');
+var punch = new Audio('punch.mp3');
+var magicbow = new Audio('magicbow.mp3');
+
+document.addEventListener("keydown", inputPlayer1);
+
+var manaplayer1 = 50;
+var manaplayer2 = 50;
+
+let ambianceStarted = false;
+
+//FONCTIONS
+//Lancement de l'audio
+window.alert("Welcome to Magical Battles, defeat your opponent!");
+document.addEventListener("keydown", function startAmbiance() {
+    if (!ambianceStarted) {
+		ambiance.play().catch(e => console.log("Audio error : ", e));
+        ambianceStarted = true;
+    }
+});
+
+
+//Déplacer le personnage
+function movePlayer1(direction){
+
+	if (!player.style.left) player.style.left = "15px";
+	if (!player.style.top) player.style.top = "325px";
+
+	let left = parseInt(player.style.left);
+	let top = parseInt(player.style.top);
+	const speed = 20;
+
+	switch (direction){
+		case "top":
+			mana1htmlelement.innerText = manaplayer1;
+			mana1htmlelement.style.color = "white";
+			if(manaplayer1 < 50){
+				mana1htmlelement.style.color = "#267300";
+				manaplayer1 = manaplayer1 + 0.5;
+			}
+			mana1htmlelement.innerText = manaplayer1;
+			output.style.color = "green";
+			output.innerText = "Move top";
+			top = top - speed;
+			console.log("Move up -- vertical position = " + top);
+			bruitdepas.play();
+			break;
+		case "bottom":
+			mana1htmlelement.innerText = manaplayer1;
+			mana1htmlelement.style.color = "white";
+			if(manaplayer1 < 50){
+				mana1htmlelement.style.color = "#267300";
+				manaplayer1 = manaplayer1 + 0.5;
+			}
+			mana1htmlelement.innerText = manaplayer1;
+			output.style.color = "green";
+			output.innerText = "Move down";
+			top = top + speed;
+			console.log("Move down -- vertical position = " + top);
+			bruitdepas.play();
+			break;
+		case "left":
+			mana1htmlelement.innerText = manaplayer1;
+			mana1htmlelement.style.color = "white";
+			if(manaplayer1 < 50){
+				mana1htmlelement.style.color = "#267300";
+				manaplayer1 = manaplayer1 + 0.5;
+			}
+			mana1htmlelement.innerText = manaplayer1;
+			output.style.color = "green";
+			output.innerText = "Move left";
+			left = left - speed;
+			console.log("Move left -- horizontal position = " + left);
+			bruitdepas.play();
+			break;
+		case "right":
+			mana1htmlelement.innerText = manaplayer1;
+			mana1htmlelement.style.color = "white";
+			if(manaplayer1 < 50){
+				mana1htmlelement.style.color = "#267300";
+				manaplayer1 = manaplayer1 + 1;
+			}
+			mana1htmlelement.innerText = manaplayer1;
+			output.style.color = "green";
+			output.innerText = "Move right";
+			left = left + speed;
+			console.log("Move right -- horizontal position = " + left);
+			bruitdepas.play();
+			break;
+	}
+	player.style.left = left + "px";
+	player.style.top = top + "px";
+}
+
+
+//SORTS
+function spellPlayer1(spell){
+	
+	switch (spell){
+		case "a":
+			mana1htmlelement.style.color = "white";
+			mana1htmlelement.innerText = manaplayer1;
+			manaplayer1calcul = manaplayer1 - 25;
+			if(manaplayer1calcul < 0){
+				mana1htmlelement.innerText = manaplayer1;
+				output.style.color = "red"
+				output.innerText = "Not enough mana !";
+				console.log("Not enough mana !");
+				break;
+			}else{
+				manaplayer1 = manaplayer1 - 5;
+				output.style.color = "orange";
+				mana1htmlelement.style.color = "red";
+				mana1htmlelement.innerText = "- 25 !";
+				player1explosionstatus.style.color = "green";
+				player1explosionstatus.innerText = "In use";
+				setTimeout(function changeColor(){
+					player1explosionstatus.innerText = "Do not use";
+					player1explosionstatus.style.color = "white";
+				}, 2000);
+				output.innerText = "Explosion spell";
+				explosion.play();
+				mana1htmlelement.style.color = "white";
+				break;
+			}
+		case "z":
+			mana1htmlelement.style.color = "white";
+			mana1htmlelement.innerText = manaplayer1;
+			manaplayer1calcul = manaplayer1 - 15;
+			if(manaplayer1calcul < 0){
+				mana1htmlelement.innerText = manaplayer1;
+				output.style.color = "red"
+				output.innerText = "Not enough mana !";
+				console.log("Not enough mana !");
+				break;
+			}else{
+				manaplayer1 = manaplayer1 - 15;
+				output.style.color = "red";
+				mana1htmlelement.style.color = "red";
+				mana1htmlelement.innerText = "- 15 !";
+				player1firestatus.style.color = "green";
+				player1firestatus.innerText = "In use";
+				setTimeout(function changeColor(){
+					player1firestatus.innerText = "Do not use";
+					player1firestatus.style.color = "white";
+				}, 2000);
+				output.innerText = "Fire Spell";
+				fire.play();
+				break;
+			}
+		case "e":
+			mana1htmlelement.style.color = "white";
+			mana1htmlelement.innerText = manaplayer1;
+			manaplayer1calcul = manaplayer1 - 5;
+			if(manaplayer1calcul < 0){
+				mana1htmlelement.innerText = manaplayer1;
+				output.style.color = "red"
+				output.innerText = "Not enough mana !";
+				console.log("Not enough mana !");
+				break;
+			}else{
+				manaplayer1 = manaplayer1 - 5;
+				output.style.color = "red";
+				mana1htmlelement.style.color = "red";
+				mana1htmlelement.innerText = "- 5 !";
+				output.style.color = "yellow";
+				player1punchstatus.style.color = "green";
+				player1punchstatus.innerText = "In use";
+				setTimeout(function changeColor(){
+					player1punchstatus.innerText = "Do not use";
+					player1punchstatus.style.color = "white";
+				}, 2000);
+				output.innerText = "Punch";
+				punch.play();
+				break;
+			}
+		case "r":
+			mana1htmlelement.style.color = "white";
+			mana1htmlelement.innerText = manaplayer1;
+			manaplayer1calcul = manaplayer1 - 10;
+			if(manaplayer1calcul < 0){
+				mana1htmlelement.innerText = manaplayer1;
+				output.style.color = "red"
+				output.innerText = "Not enough mana !";
+				console.log("Not enough mana !");
+				break;
+			}else{
+				manaplayer1 = manaplayer1 - 10;
+				output.style.color = "brown";
+				mana1htmlelement.style.color = "red";
+				mana1htmlelement.innerText = "- 10 !";
+				player1magicbowstatus.style.color = "green";
+				player1magicbowstatus.innerText = "In use";
+				setTimeout(function changeColor(){
+					player1magicbowstatus.innerText = "Do not use";
+					player1magicbowstatus.style.color = "white";
+				}, 2000);
+				output.innerText = "Explosion spell";
+				output.innerText = "Magic Bow";
+				magicbow.play();
+				break;
+			}
+	}
+}
+
+
+//PLAYER 2
+
+
+//DEPLACEMENT J2
+function movePlayer2(direction){
+
+	if (!player2.style.left) player2.style.left = "1800px";
+	if (!player2.style.top) player2.style.top = "325px";
+
+	let left2 = parseInt(player2.style.left);
+	let top2 = parseInt(player2.style.top);
+	const speed = 20;
+
+	switch (direction){
+		case "top":
+			mana2htmlelement.innerText = manaplayer2;
+			mana1htmlelement.style.color = "white";
+			if(manaplayer2 < 50){
+				mana1htmlelement.style.color = "#267300";
+				manaplayer2 = manaplayer2 + 0.5;
+			}
+			mana2htmlelement.innerText = manaplayer2;
+			output2.style.color = "green";
+			output2.innerText = "Move top";
+			top2 = top2 - speed;
+			console.log("Move up -- vertical position = " + top2);
+			bruitdepas.play();
+			break;
+		case "bottom":
+			mana2htmlelement.innerText = manaplayer2;
+			mana2htmlelement.style.color = "white";
+			if(manaplayer2 < 50){
+				mana1htmlelement.style.color = "#267300";
+				manaplayer2 = manaplayer1 + 0.5;
+			}
+			mana2htmlelement.innerText = manaplayer2;
+			output2.style.color = "green";
+			output2.innerText = "Move down";
+			top2 = top2 + speed;
+			console.log("Move down -- vertical position = " + top2);
+			bruitdepas.play();
+			break;
+		case "left":
+			mana2htmlelement.innerText = manaplayer2;
+			mana2htmlelement.style.color = "white";
+			if(manaplayer2 < 50){
+				mana2htmlelement.style.color = "#267300";
+				manaplayer2 = manaplayer2 + 0.5;
+			}
+			mana2htmlelement.innerText = manaplayer2;
+			output2.style.color = "green";
+			output2.innerText = "Move left";
+			left2 = left2 - speed;
+			console.log("Move left -- horizontal position = " + left2);
+			bruitdepas.play();
+			break;
+		case "right":
+			mana1htmlelement.innerText = manaplayer1;
+			mana1htmlelement.style.color = "white";
+			if(manaplayer2 < 50){
+				mana2htmlelement.style.color = "#267300";
+				manaplayer2 = manaplayer2 + 1;
+			}
+			mana2htmlelement.innerText = manaplayer2;
+			output2.style.color = "green";
+			output2.innerText = "Move right";
+			left2 = left2 + speed;
+			console.log("Move right -- horizontal position = " + left2);
+			bruitdepas.play();
+			break;
+	}
+	player2.style.left = left2 + "px";
+	player2.style.top = top2 + "px";
+}
+
+//SORTS J2
+function spellPlayer2(spell){
+	
+	switch (spell){
+		case "j":
+			mana1htmlelement.style.color = "white";
+			mana1htmlelement.innerText = manaplayer1;
+			manaplayer1calcul = manaplayer1 - 25;
+			if(manaplayer1calcul < 0){
+				mana1htmlelement.innerText = manaplayer1;
+				output2.style.color = "red"
+				output2.innerText = "Not enough mana !";
+				console.log("Not enough mana !");
+				break;
+			}else{
+				manaplayer1 = manaplayer1 - 5;
+				output2.style.color = "orange";
+				mana1htmlelement.style.color = "red";
+				mana1htmlelement.innerText = "- 25 !";
+				player1explosionstatus.style.color = "green";
+				player1explosionstatus.innerText = "In use";
+				setTimeout(function changeColor(){
+					player1explosionstatus.innerText = "Do not use";
+					player1explosionstatus.style.color = "white";
+				}, 2000);
+				output2.innerText = "Explosion spell";
+				explosion.play();
+				mana1htmlelement.style.color = "white";
+				break;
+			}
+		case "k":
+			mana1htmlelement.style.color = "white";
+			mana1htmlelement.innerText = manaplayer1;
+			manaplayer1calcul = manaplayer1 - 15;
+			if(manaplayer1calcul < 0){
+				mana1htmlelement.innerText = manaplayer1;
+				output2.style.color = "red"
+				output2.innerText = "Not enough mana !";
+				console.log("Not enough mana !");
+				break;
+			}else{
+				manaplayer1 = manaplayer1 - 15;
+				output2.style.color = "red";
+				mana1htmlelement.style.color = "red";
+				mana1htmlelement.innerText = "- 15 !";
+				player1firestatus.style.color = "green";
+				player1firestatus.innerText = "In use";
+				setTimeout(function changeColor(){
+					player1firestatus.innerText = "Do not use";
+					player1firestatus.style.color = "white";
+				}, 2000);
+				output2.innerText = "Fire Spell";
+				fire.play();
+				break;
+			}
+		case "l":
+			mana1htmlelement.style.color = "white";
+			mana1htmlelement.innerText = manaplayer1;
+			manaplayer1calcul = manaplayer1 - 5;
+			if(manaplayer1calcul < 0){
+				mana1htmlelement.innerText = manaplayer1;
+				output2.style.color = "red"
+				output2.innerText = "Not enough mana !";
+				console.log("Not enough mana !");
+				break;
+			}else{
+				manaplayer1 = manaplayer1 - 5;
+				output2.style.color = "red";
+				mana1htmlelement.style.color = "red";
+				mana1htmlelement.innerText = "- 5 !";
+				output2.style.color = "yellow";
+				player1punchstatus.style.color = "green";
+				player1punchstatus.innerText = "In use";
+				setTimeout(function changeColor(){
+					player1punchstatus.innerText = "Do not use";
+					player1punchstatus.style.color = "white";
+				}, 2000);
+				output2.innerText = "Punch";
+				punch.play();
+				break;
+			}
+		case "m":
+			mana1htmlelement.style.color = "white";
+			mana1htmlelement.innerText = manaplayer1;
+			manaplayer1calcul = manaplayer1 - 10;
+			if(manaplayer1calcul < 0){
+				mana1htmlelement.innerText = manaplayer1;
+				output2.style.color = "red"
+				output2.innerText = "Not enough mana !";
+				console.log("Not enough mana !");
+				break;
+			}else{
+				manaplayer1 = manaplayer1 - 10;
+				output2.style.color = "brown";
+				mana1htmlelement.style.color = "red";
+				mana1htmlelement.innerText = "- 10 !";
+				player1magicbowstatus.style.color = "green";
+				player1magicbowstatus.innerText = "In use";
+				setTimeout(function changeColor(){
+					player1magicbowstatus.innerText = "Do not use";
+					player1magicbowstatus.style.color = "white";
+				}, 2000);
+				output2.innerText = "Explosion spell";
+				output2.innerText = "Magic Bow";
+				magicbow.play();
+				break;
+			}
+	}
+}
+
+
+//Connaître la touche pressé
+function inputPlayer1(e){
+	//PLAYER 1
+	if(e.code == buttonright){
+		movePlayer1("right");
+		console.log("Input : " + buttonright);
+	}
+	if(e.code == buttonleft){
+		movePlayer1("left");
+		console.log("Input : " + buttonleft);
+	}
+	if(e.code == buttontop){
+		movePlayer1("top");
+		console.log("Input : " + buttontop);
+	}
+	if(e.code == buttondown){
+		movePlayer1("bottom");
+		console.log("Input : " + buttondown);
+	}
+	if(e.code == buttona){
+		spellPlayer1("a");
+		console.log("A explosion spell by Player 1 started !");
+	}
+	if(e.code == buttonz){
+		spellPlayer1("z");
+		console.log("A fire spell by Player 1 started !");
+	}
+	if(e.code == buttone){
+		spellPlayer1("e");
+		console.log("The player one do a punch !");
+	}
+	if(e.code == buttonr){
+		spellPlayer1("r");
+		console.log("The player 1 use a Magic Bow");
+	}
+
+	//PLAYER1
+	if(e.code == buttontop2){
+		movePlayer2("top");
+		console.log("Input : " + buttontop2);
+	}
+	if(e.code == buttondown2){
+		movePlayer2("bottom");
+		console.log("Input : " + buttondown2);
+	}
+	if(e.code == buttonleft2){
+		movePlayer2("left");
+		console.log("Input : " + buttonleft2);
+	}
+	if(e.code == buttonright2){
+		movePlayer2("right");
+		console.log("Input : " + buttonright2);
+	}
+	if(e.code == buttonj){
+		spellPlayer2("j");
+	}
+	if(e.code == buttonk){
+		spellPlayer2("k");
+	}
+	if(e.code == buttonl){
+		spellPlayer2("l");
+	}
+	if(e.code == buttonm){
+		spellPlayer2("m");
+	}
+}
