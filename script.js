@@ -59,7 +59,7 @@ document.addEventListener("keydown", function startAmbiance() {
 function movePlayer1(direction){
 
 	if (!player.style.left) player.style.left = "15px";
-	if (!player.style.top) player.style.top = "325px";
+	if (!player.style.top) player.style.top = "450px";
 
 	let left = parseInt(player.style.left);
 	let top = parseInt(player.style.top);
@@ -271,8 +271,8 @@ function movePlayer2(direction){
 			mana2htmlelement.innerText = manaplayer2;
 			mana2htmlelement.style.color = "white";
 			if(manaplayer2 < 50){
-				mana1htmlelement.style.color = "#267300";
-				manaplayer2 = manaplayer1 + 0.5;
+				mana2htmlelement.style.color = "#267300";
+				manaplayer2 = manaplayer2 + 0.5;
 			}
 			mana2htmlelement.innerText = manaplayer2;
 			output2.style.color = "green";
@@ -320,19 +320,19 @@ function spellPlayer2(spell){
 	switch (spell){
 		case "j":
 			mana1htmlelement.style.color = "white";
-			mana1htmlelement.innerText = manaplayer1;
-			manaplayer1calcul = manaplayer1 - 25;
-			if(manaplayer1calcul < 0){
-				mana1htmlelement.innerText = manaplayer1;
+			mana1htmlelement.innerText = manaplayer2;
+			manaplayer2calcul = manaplayer2 - 25;
+			if(manaplayer2calcul < 0){
+				mana2htmlelement.innerText = manaplayer2;
 				output2.style.color = "red"
 				output2.innerText = "Not enough mana !";
 				console.log("Not enough mana !");
 				break;
 			}else{
-				manaplayer1 = manaplayer1 - 5;
+				manaplayer2 = manaplayer2 - 5;
 				output2.style.color = "orange";
-				mana1htmlelement.style.color = "red";
-				mana1htmlelement.innerText = "- 25 !";
+				mana2htmlelement.style.color = "red";
+				mana2htmlelement.innerText = "- 25 !";
 				player1explosionstatus.style.color = "green";
 				player1explosionstatus.innerText = "In use";
 				setTimeout(function changeColor(){
@@ -345,20 +345,20 @@ function spellPlayer2(spell){
 				break;
 			}
 		case "k":
-			mana1htmlelement.style.color = "white";
-			mana1htmlelement.innerText = manaplayer1;
-			manaplayer1calcul = manaplayer1 - 15;
-			if(manaplayer1calcul < 0){
-				mana1htmlelement.innerText = manaplayer1;
+			mana2htmlelement.style.color = "white";
+			mana2htmlelement.innerText = manaplayer2;
+			manaplayer2calcul = manaplayer2 - 15;
+			if(manaplayer2calcul < 0){
+				mana2htmlelement.innerText = manaplayer2;
 				output2.style.color = "red"
 				output2.innerText = "Not enough mana !";
 				console.log("Not enough mana !");
 				break;
 			}else{
-				manaplayer1 = manaplayer1 - 15;
+				manaplayer2 = manaplayer2 - 15;
 				output2.style.color = "red";
-				mana1htmlelement.style.color = "red";
-				mana1htmlelement.innerText = "- 15 !";
+				mana2htmlelement.style.color = "red";
+				mana2htmlelement.innerText = "- 15 !";
 				player1firestatus.style.color = "green";
 				player1firestatus.innerText = "In use";
 				setTimeout(function changeColor(){
@@ -370,20 +370,20 @@ function spellPlayer2(spell){
 				break;
 			}
 		case "l":
-			mana1htmlelement.style.color = "white";
-			mana1htmlelement.innerText = manaplayer1;
-			manaplayer1calcul = manaplayer1 - 5;
-			if(manaplayer1calcul < 0){
-				mana1htmlelement.innerText = manaplayer1;
+			mana2htmlelement.style.color = "white";
+			mana2htmlelement.innerText = manaplayer2;
+			manaplayer2calcul = manaplayer2 - 5;
+			if(manaplayer2calcul < 0){
+				mana1htmlelement.innerText = manaplayer2;
 				output2.style.color = "red"
 				output2.innerText = "Not enough mana !";
 				console.log("Not enough mana !");
 				break;
 			}else{
-				manaplayer1 = manaplayer1 - 5;
+				manaplayer2 = manaplayer2 - 5;
 				output2.style.color = "red";
-				mana1htmlelement.style.color = "red";
-				mana1htmlelement.innerText = "- 5 !";
+				mana2htmlelement.style.color = "red";
+				mana2htmlelement.innerText = "- 5 !";
 				output2.style.color = "yellow";
 				player1punchstatus.style.color = "green";
 				player1punchstatus.innerText = "In use";
@@ -396,20 +396,20 @@ function spellPlayer2(spell){
 				break;
 			}
 		case "m":
-			mana1htmlelement.style.color = "white";
-			mana1htmlelement.innerText = manaplayer1;
-			manaplayer1calcul = manaplayer1 - 10;
-			if(manaplayer1calcul < 0){
-				mana1htmlelement.innerText = manaplayer1;
+			mana2htmlelement.style.color = "white";
+			mana2htmlelement.innerText = manaplayer2;
+			manaplayer2calcul = manaplayer2 - 10;
+			if(manaplayer2calcul < 0){
+				mana2htmlelement.innerText = manaplayer2;
 				output2.style.color = "red"
 				output2.innerText = "Not enough mana !";
 				console.log("Not enough mana !");
 				break;
 			}else{
-				manaplayer1 = manaplayer1 - 10;
+				manaplayer2 = manaplayer2 - 10;
 				output2.style.color = "brown";
-				mana1htmlelement.style.color = "red";
-				mana1htmlelement.innerText = "- 10 !";
+				mana2htmlelement.style.color = "red";
+				mana2htmlelement.innerText = "- 10 !";
 				player1magicbowstatus.style.color = "green";
 				player1magicbowstatus.innerText = "In use";
 				setTimeout(function changeColor(){
