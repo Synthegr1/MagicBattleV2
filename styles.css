@@ -18,7 +18,8 @@ img.player2{
     top: 325px;     
 }
 html{
-	background-color: black;
+	background-image: url("backgroundimg.jpg");
+	background-repeat: no-repeat;
 	}
 p{
 	color: white;
@@ -42,4 +43,7 @@ table{
 h2.test{
 	font-size: 1.2rem;;
 	text-align: left;
+}
+table{
+	background-color: #3AB2FC;
 }
