@@ -4,22 +4,23 @@ h1{
 	margin-top: 15;
 	}
 img{
-	width: 95px;
-	height: 110px;
+	width: 160px;
+	height: 175px;
 	position: absolute; 
     left: 10px;         
     top: 325px;     
 }
 img.player2{
-	width: 95px;
-	height: 110px;
+	width: 160px;
+	height: 175px;
 	position: absolute; 
-    left: 1800px;         
+    left: 1750px;         
     top: 325px;     
 }
 html{
 	background-image: url("backgroundimg.jpg");
 	background-repeat: no-repeat;
+	background-size: cover;
 	}
 p{
 	color: white;
@@ -45,5 +46,15 @@ h2.test{
 	text-align: left;
 }
 table{
-	background-color: #3AB2FC;
+	background-color: rgba(255, 255, 255, 0.35); /* ajuste le dernier chiffre (0..1) pour plus ou moins de transparence */
+    color: black;
+    border-radius: 8px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+}
+div{
+	display: flex;
+    gap: 16px;            /* espace entre les tables */
+    align-items: flex-start; /* ou center pour centrer verticalement */
+    flex-wrap: wrap; 
+    margin-top: 250;
 }
