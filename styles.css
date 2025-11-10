@@ -45,11 +45,18 @@ h2.test{
 	font-size: 1.2rem;;
 	text-align: left;
 }
-table{
+table.p1{
 	background-color: rgba(255, 255, 255, 0.35); /* ajuste le dernier chiffre (0..1) pour plus ou moins de transparence */
     color: black;
     border-radius: 8px;
     box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+}
+table.p2{
+	background-color: rgba(255, 255, 255, 0.35); /* ajuste le dernier chiffre (0..1) pour plus ou moins de transparence */
+    color: black;
+    border-radius: 8px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+    margin-left: 400;
 }
 div{
 	display: flex;
@@ -57,4 +64,8 @@ div{
     align-items: flex-start; /* ou center pour centrer verticalement */
     flex-wrap: wrap; 
     margin-top: 250;
+    margin-left: 500;
+}
+h2.trait{
+	color: white;
 }
