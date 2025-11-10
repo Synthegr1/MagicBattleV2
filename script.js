@@ -25,6 +25,10 @@ const player1explosionstatus = document.getElementById("useplayer1explosion");
 const player1firestatus = document.getElementById("useplayer1fire");
 const player1punchstatus = document.getElementById("useplayer1punch");
 const player1magicbowstatus = document.getElementById("useplayer1magicbow");
+const player2explosionstatus = document.getElementById("useplayer2explosion");
+const player2firestatus = document.getElementById("useplayer2fire");
+const player2punchstatus = document.getElementById("useplayer2punch");
+const player2magicbowstatus = document.getElementById("useplayer2magicbow");
 const mana1htmlelement = document.getElementById("mana");
 const mana2htmlelement = document.getElementById("mana2");
 const player2 = document.getElementById("player2");
@@ -41,6 +45,9 @@ document.addEventListener("keydown", inputPlayer1);
 
 var manaplayer1 = 50;
 var manaplayer2 = 50;
+
+var hpplayer1 = 100;
+var hpplayer2 = 100;
 
 let ambianceStarted = false;
 
@@ -333,11 +340,11 @@ function spellPlayer2(spell){
 				output2.style.color = "orange";
 				mana2htmlelement.style.color = "red";
 				mana2htmlelement.innerText = "- 25 !";
-				player1explosionstatus.style.color = "green";
-				player1explosionstatus.innerText = "In use";
+				player2explosionstatus.style.color = "green";
+				player2explosionstatus.innerText = "In use";
 				setTimeout(function changeColor(){
-					player1explosionstatus.innerText = "Do not use";
-					player1explosionstatus.style.color = "white";
+					player2explosionstatus.innerText = "Do not use";
+					player2explosionstatus.style.color = "white";
 				}, 2000);
 				output2.innerText = "Explosion spell";
 				explosion.play();
@@ -359,11 +366,11 @@ function spellPlayer2(spell){
 				output2.style.color = "red";
 				mana2htmlelement.style.color = "red";
 				mana2htmlelement.innerText = "- 15 !";
-				player1firestatus.style.color = "green";
-				player1firestatus.innerText = "In use";
+				player2firestatus.style.color = "green";
+				player2firestatus.innerText = "In use";
 				setTimeout(function changeColor(){
-					player1firestatus.innerText = "Do not use";
-					player1firestatus.style.color = "white";
+					player2firestatus.innerText = "Do not use";
+					player2firestatus.style.color = "white";
 				}, 2000);
 				output2.innerText = "Fire Spell";
 				fire.play();
@@ -385,11 +392,11 @@ function spellPlayer2(spell){
 				mana2htmlelement.style.color = "red";
 				mana2htmlelement.innerText = "- 5 !";
 				output2.style.color = "yellow";
-				player1punchstatus.style.color = "green";
-				player1punchstatus.innerText = "In use";
+				player2punchstatus.style.color = "green";
+				player2punchstatus.innerText = "In use";
 				setTimeout(function changeColor(){
-					player1punchstatus.innerText = "Do not use";
-					player1punchstatus.style.color = "white";
+					player2punchstatus.innerText = "Do not use";
+					player2punchstatus.style.color = "white";
 				}, 2000);
 				output2.innerText = "Punch";
 				punch.play();
@@ -410,11 +417,11 @@ function spellPlayer2(spell){
 				output2.style.color = "brown";
 				mana2htmlelement.style.color = "red";
 				mana2htmlelement.innerText = "- 10 !";
-				player1magicbowstatus.style.color = "green";
-				player1magicbowstatus.innerText = "In use";
+				player2magicbowstatus.style.color = "green";
+				player2magicbowstatus.innerText = "In use";
 				setTimeout(function changeColor(){
-					player1magicbowstatus.innerText = "Do not use";
-					player1magicbowstatus.style.color = "white";
+					player2magicbowstatus.innerText = "Do not use";
+					player2magicbowstatus.style.color = "white";
 				}, 2000);
 				output2.innerText = "Explosion spell";
 				output2.innerText = "Magic Bow";
