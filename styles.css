@@ -1,6 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 h1{
 	text-align: center;
-	font-family: arial, sans-serif;
+	font-family: 'Press Start 2P', monospace;
+  	font-size: 40px;              /* ajuste selon le besoin */
+  	line-height: 1.1;
+  	letter-spacing: 0.02em;
+  	text-transform: none;
+  	-webkit-font-smoothing: none; /* désactive l'anti-aliasing pour un rendu plus net/pixelisé */
+  	-moz-osx-font-smoothing: grayscale;
+  	text-rendering: optimizeSpeed;
+  	image-rendering: pixelated;
+  	color: black;
 	margin-top: 15;
 	}
 img{
