@@ -140,30 +140,31 @@ function spellPlayer1(spell){
 	
 	switch (spell){
 		case "a":
-			mana1htmlelement.style.color = "white";
-			mana1htmlelement.innerText = manaplayer1;
-			manaplayer1calcul = manaplayer1 - 25;
+			mana1htmlelement.style.color = "white"; 
+			mana1htmlelement.innerText = manaplayer1; //Ecriture dans l'HTML
+			manaplayer1calcul = manaplayer1 - 25; // Calcul du mana après le sort
 			if(manaplayer1calcul < 0){
 				mana1htmlelement.innerText = manaplayer1;
 				output.style.color = "red"
 				output.innerText = "Not enough mana !";
-				console.log("Not enough mana !");
+				console.log("Not enough mana !"); //Verifie la quantité de mana
 				break;
 			}else{
-				manaplayer1 = manaplayer1 - 5;
+				manaplayer1 = manaplayer1 - 25; //Soustrait le mana
 				output.style.color = "orange";
 				mana1htmlelement.style.color = "red";
 				mana1htmlelement.innerText = "- 25 !";
 				player1explosionstatus.style.color = "green";
-				player1explosionstatus.innerText = "In use";
+				player1explosionstatus.innerText = "In use"; //CSS et affichage du status
 				setTimeout(function changeColor(){
 					player1explosionstatus.innerText = "Do not use";
 					player1explosionstatus.style.color = "white";
-				}, 2000);
+				}, 2000); //Passe le status en "Do not use" après 2 secondes
 				output.innerText = "Explosion spell";
-				explosion.play();
+				explosion.play(); //Audio
 				mana1htmlelement.style.color = "white";
 				break;
+				
 			}
 		case "z":
 			mana1htmlelement.style.color = "white";
