@@ -305,6 +305,24 @@ function spellPlayer1(spell){
 				output.innerText = "Explosion spell";
 				output.innerText = "Magic Bow";
 				magicbow.play();
+
+				var posp2left = player2.offsetLeft;
+					var posp1left = player.offsetLeft;
+
+					if (Math.abs(posp1left - posp2left) < 2000) {
+						console.log("Attaque réussie");
+						// Dégâts a appliquer.
+						hpplayer2 = hpplayer2 - 18;
+						hpp2html.innerText = hpplayer2;
+						console.log(hpplayer2);
+							if(hpplayer2 <= 0){
+								window.alert("Player 1 a gagner avec " + hpplayer1 + " PV ! Quelle humiliation ! ")
+							}
+						break;
+
+					} else {
+						console.log("Echec de l'attaque");
+					}
 				break;
 			}
 	}
