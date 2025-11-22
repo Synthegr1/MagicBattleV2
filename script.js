@@ -218,7 +218,7 @@ function spellPlayer1(spell){
 					var posp2left = player2.offsetLeft;
 					var posp1left = player.offsetLeft;
 
-					if (Math.abs(posp1left - posp2left) < 400) {
+					if (Math.abs(posp1left - posp2left) < 600) {
 						console.log("Attaque réussie");
 						// Dégâts a appliquer.
 						hpplayer2 = hpplayer2 - 15;
@@ -432,6 +432,25 @@ function spellPlayer2(spell){
 				output2.innerText = "Explosion spell";
 				explosion.play();
 				mana1htmlelement.style.color = "white";
+
+					var posp2left = player2.offsetLeft;
+					var posp1left = player.offsetLeft; // use the `player` variable declared above
+
+					// attack should succeed only when players are close enough horizontally
+					if (Math.abs(posp1left - posp2left) < 400) {
+						console.log("Attaque réussie");
+						// Dégâts a appliquer.
+						hpplayer1 = hpplayer1 - 25;
+						hpp1html.innerText = hpplayer1;
+						console.log(hpplayer1);
+							if(hpplayer1 <= 0){
+								window.alert("Player 2 a gagner avec " + hpplayer2 + " PV ! Quelle humiliation ! ")
+							}
+						break;
+
+					} else {
+						console.log("Echec de l'attaque");
+					}
 				break;
 			}
 		case "k":
@@ -457,6 +476,25 @@ function spellPlayer2(spell){
 				}, 2000);
 				output2.innerText = "Fire Spell";
 				fire.play();
+
+				var posp2left = player2.offsetLeft;
+					var posp1left = player.offsetLeft; // use the `player` variable declared above
+
+					// attack should succeed only when players are close enough horizontally
+					if (Math.abs(posp1left - posp2left) < 600) {
+						console.log("Attaque réussie");
+						// Dégâts a appliquer.
+						hpplayer1 = hpplayer1 - 15;
+						hpp1html.innerText = hpplayer1;
+						console.log(hpplayer1);
+							if(hpplayer1 <= 0){
+								window.alert("Player 2 a gagner avec " + hpplayer2 + " PV ! Quelle humiliation ! ")
+							}
+						break;
+
+					} else {
+						console.log("Echec de l'attaque");
+					}
 				break;
 			}
 		case "l":
@@ -483,6 +521,25 @@ function spellPlayer2(spell){
 				}, 2000);
 				output2.innerText = "Punch";
 				punch.play();
+
+				var posp2left = player2.offsetLeft;
+					var posp1left = player.offsetLeft; // use the `player` variable declared above
+
+					// attack should succeed only when players are close enough horizontally
+					if (Math.abs(posp1left - posp2left) < 200) {
+						console.log("Attaque réussie");
+						// Dégâts a appliquer.
+						hpplayer1 = hpplayer1 - 10;
+						hpp1html.innerText = hpplayer1;
+						console.log(hpplayer1);
+							if(hpplayer1 <= 0){
+								window.alert("Player 2 a gagner avec " + hpplayer2 + " PV ! Quelle humiliation ! ")
+							}
+						break;
+
+					} else {
+						console.log("Echec de l'attaque");
+					}
 				break;
 			}
 		case "m":
@@ -509,6 +566,25 @@ function spellPlayer2(spell){
 				output2.innerText = "Explosion spell";
 				output2.innerText = "Magic Bow";
 				magicbow.play();
+
+				var posp2left = player2.offsetLeft;
+					var posp1left = player.offsetLeft; // use the `player` variable declared above
+
+					// attack should succeed only when players are close enough horizontally
+					if (Math.abs(posp1left - posp2left) < 2000) {
+						console.log("Attaque réussie");
+						// Dégâts a appliquer.
+						hpplayer1 = hpplayer1 - 18;
+						hpp1html.innerText = hpplayer1;
+						console.log(hpplayer1);
+							if(hpplayer1 <= 0){
+								window.alert("Player 2 a gagner avec " + hpplayer2 + " PV ! Quelle humiliation ! ")
+							}
+						break;
+
+					} else {
+						console.log("Echec de l'attaque");
+					}
 				break;
 			}
 	}
